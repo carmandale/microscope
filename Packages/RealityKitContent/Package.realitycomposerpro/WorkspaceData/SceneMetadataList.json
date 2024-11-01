@@ -68,35 +68,8 @@
       [
         "559F0420-FF8C-4149-8F96-49DF927D735B",
         "root",
-        "folder3"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
         "station_02",
         "microscope_01_001"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "folder3",
-        "Track"
       ],
       {
         "isExpanded" : true,
@@ -115,26 +88,16 @@
       [
         "559F0420-FF8C-4149-8F96-49DF927D735B",
         "root",
+        "folder3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
         "station_01"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "station_02"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "station_02",
-        "desk_large"
       ],
       {
         "isExpanded" : true,
@@ -161,8 +124,45 @@
       [
         "559F0420-FF8C-4149-8F96-49DF927D735B",
         "root",
+        "folder3",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
+        "station_02",
+        "desk_large"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
         "Timeline",
         "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
+        "station_02"
       ],
       {
         "isExpanded" : true,
@@ -280,6 +280,18 @@
 
     ]
   },
+  "A334C46B-C9AD-4664-B40A-B7C43C207923" : {
+    "objectMetadataList" : [
+      [
+        "A334C46B-C9AD-4664-B40A-B7C43C207923",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "C8839E85-627A-4492-AA62-4F4685E6CF0F" : {
     "objectMetadataList" : [
       [
@@ -293,7 +305,7 @@
       [
         "C8839E85-627A-4492-AA62-4F4685E6CF0F",
         "root",
-        "_materials"
+        "manillaFolder_closed_mesh_001"
       ],
       {
         "isExpanded" : true,
@@ -302,7 +314,7 @@
       [
         "C8839E85-627A-4492-AA62-4F4685E6CF0F",
         "root",
-        "manillaFolder_closed_mesh_001"
+        "_materials"
       ],
       {
         "isExpanded" : true,
@@ -314,7 +326,8 @@
     "objectMetadataList" : [
       [
         "C98E1505-AFC7-4392-81AB-0AB0AEAA6FC7",
-        "root"
+        "root",
+        "_materials"
       ],
       {
         "isExpanded" : true,
@@ -331,8 +344,7 @@
       },
       [
         "C98E1505-AFC7-4392-81AB-0AB0AEAA6FC7",
-        "root",
-        "_materials"
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -345,7 +357,7 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "Timeline",
+        "killCell_2",
         "Track"
       ],
       {
@@ -355,7 +367,7 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "killCell_2"
+        "killCell"
       ],
       {
         "isExpanded" : true,
@@ -383,7 +395,8 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "killCell"
+        "killCell",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -392,16 +405,7 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "CancerCells"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "killCell_2",
+        "Timeline",
         "Track"
       ],
       {
@@ -419,8 +423,16 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "killCell",
-        "Track"
+        "CancerCells"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "killCell_2"
       ],
       {
         "isExpanded" : true,

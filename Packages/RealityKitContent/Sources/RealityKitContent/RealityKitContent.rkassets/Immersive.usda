@@ -164,7 +164,7 @@ def Xform "Root"
     {
         quatf xformOp:orient = (0.70552427, -0.7055243, 0.047280155, 0.047280103)
         float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-0.63421965, 1.0911487, -0.89163905)
+        float3 xformOp:translate = (-0.63421965, 1.0227262, -0.89163905)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         def RealityKitComponent "Collider"
@@ -209,7 +209,7 @@ def Xform "Root"
     {
         quatf xformOp:orient = (0.7008079, -0.70080805, 0.0941709, 0.09417088)
         float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-0.3117715, 1.0629543, -0.90698475)
+        float3 xformOp:translate = (-0.3117715, 1.0180178, -0.90698475)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         def RealityKitComponent "Collider"
@@ -247,14 +247,14 @@ def Xform "Root"
     def "manilaFolder_closed3" (
         active = true
         customData = {
-            float3 rotationEulerHint = (-1.5707971, -0.23949204, 7.669479e-8)
+            float3 rotationEulerHint = (-1.4799621, -0.23526071, -0.19183435)
         }
         prepend references = @Lab/Manilla Folders/manilaFolder_closed3.usdc@
     )
     {
-        quatf xformOp:orient = (0.70204294, -0.7020435, -0.08447101, -0.084471025)
+        quatf xformOp:orient = (0.72242856, -0.67483664, -0.02214018, -0.14900431)
         float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-0.9275835, 1.0428085, -0.9715565)
+        float3 xformOp:translate = (-0.9227496, 1.0421002, -0.9703826)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         def RealityKitComponent "Collider"
