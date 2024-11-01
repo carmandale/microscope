@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "PfizerIconFront.png",
       "idiom" : "vision",
       "scale" : "2x"
     }

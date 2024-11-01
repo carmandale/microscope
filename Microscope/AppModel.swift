@@ -1,21 +1,25 @@
-//
-//  AppModel.swift
-//  Microscope
-//
-//  Created by Dale Carman on 10/31/24.
-//
-
 import SwiftUI
+import RealityKitContent
 
 /// Maintains app-wide state
 @MainActor
 @Observable
 class AppModel {
-    let immersiveSpaceID = "ImmersiveSpace"
+    init() {
+        RealityKitContent.GestureComponent.registerComponent()
+        BreathComponent.registerComponent()
+    }
+    
+    // Immersive space IDs
+    let labSpaceID = "lab"
+    let adcSpaceID = "adc"
+    
     enum ImmersiveSpaceState {
         case closed
         case inTransition
         case open
     }
+    
     var immersiveSpaceState = ImmersiveSpaceState.closed
+    var currentSpaceID: String?  // Track which space is currently open
 }

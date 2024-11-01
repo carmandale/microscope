@@ -21,10 +21,8 @@ struct ImmersiveView: View {
                 // https://developer.apple.com/
             }
         }
+        .installGestures()
     }
 }
 
-#Preview(immersionStyle: .progressive) {
-    ImmersiveView()
-        .environment(AppModel())
-}
+
