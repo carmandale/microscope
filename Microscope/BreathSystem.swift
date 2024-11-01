@@ -16,6 +16,14 @@ class BreathSystem: System {
     // Define a query to return all entities with a BreathComponent.
     private static let query = EntityQuery(where: .has(BreathComponent.self))
 
+    // Configuration for breathing effect
+    private struct BreathConfig {
+        static let baseScale: Float = 1.0          // Base scale of the entity
+        static let scaleIntensity: Float = 0.05    // Reduced intensity for subtlety
+        static let minScale: Float = 0.95          // Minimum scale
+        static let maxScale: Float = 1.05          // Maximum scale
+    }
+
     // init is required even when not used
     required init(scene: Scene) {
         // Perform required initialization or setup.
@@ -34,22 +42,33 @@ class BreathSystem: System {
             let duration = breath.duration
             let deltaTime = Float(context.deltaTime)
 
-            // Accumulate time for this entity
+            // Update accumulated time
             accumulatedTime[entity, default: 0.0] += deltaTime
 
-            // Calculate the phase of the sine wave (0 to 2π), wrapping by duration
-            let phase = (accumulatedTime[entity]! / duration) * 2.0 * .pi
+            // Use a smoother sine wave calculation
+            let normalizedTime = accumulatedTime[entity]! / duration
+            let angle = normalizedTime * 2.0 * .pi
 
-            // Compute the scale to smoothly oscillate between 1.0 and 2.0
-            let scale = 1.5 + 0.5 * sin(phase)
+            // Use sine for smooth oscillation
+            let oscillation = sin(angle)
 
-            // Apply the scale to the entity
-            entity.transform.scale = .init(repeating: scale)
+            // Calculate the scale factor with smoother interpolation
+            let scale = BreathConfig.baseScale + (oscillation * BreathConfig.scaleIntensity)
 
-            // Reset accumulated time if a full cycle has passed
+            // Apply the scale uniformly
+            entity.transform.scale = SIMD3(repeating: scale)
+
+            // Wrap the time instead of resetting to avoid discontinuity
             if accumulatedTime[entity]! >= duration {
-                accumulatedTime[entity] = 0.0
+                accumulatedTime[entity]! -= duration
             }
         }
+    }
+}
+
+// Helper extension to clamp values
+extension Float {
+    func clamp(min: Float, max: Float) -> Float {
+        return Swift.min(Swift.max(self, min), max)
     }
 }

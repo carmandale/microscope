@@ -82,12 +82,16 @@ def Xform "Root"
             }
         }
 
-        def RealityKitComponent "InputTarget"
+        def RealityKitComponent "InputTarget" (
+            active = false
+        )
         {
             uniform token info:id = "RealityKit.InputTarget"
         }
 
-        def RealityKitCustomComponent "RealityKitContent_GestureComponent"
+        def RealityKitCustomComponent "RealityKitContent_GestureComponent" (
+            active = false
+        )
         {
             uniform token info:id = "RealityKitContent.GestureComponent"
             bool pivotOnDrag = 0
@@ -106,6 +110,183 @@ def Xform "Root"
         float3 xformOp:scale = (1, 1, 1)
         float3 xformOp:translate = (1.5979514, -2.9802322e-8, -1.407977)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "station_02"
+        {
+            over "desk_large"
+            {
+                def RealityKitComponent "Collider"
+                {
+                    uint group = 1
+                    uniform token info:id = "RealityKit.Collider"
+                    uint mask = 4294967295
+                    token type = "Default"
+
+                    def RealityKitStruct "Shape"
+                    {
+                        float3 extent = (2.077284, 1.4262189, 1.0134689)
+                        token shapeType = "Box"
+
+                        def RealityKitStruct "pose"
+                        {
+                            float3 position = (-0.05735433, 0.004531145, 0.5067343)
+                        }
+                    }
+                }
+
+                def RealityKitComponent "RigidBody"
+                {
+                    uniform token info:id = "RealityKit.RigidBody"
+                    token motionType = "Static"
+
+                    def RealityKitStruct "massFrame"
+                    {
+                        def RealityKitStruct "m_pose"
+                        {
+                        }
+                    }
+
+                    def RealityKitStruct "material"
+                    {
+                    }
+                }
+            }
+        }
+    }
+
+    def "manilaFolder_closed1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0.13382824, -8.2695834e-8)
+        }
+        prepend references = @Lab/Manilla Folders/manilaFolder_closed1.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70552427, -0.7055243, 0.047280155, 0.047280103)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.63421965, 1.0911487, -0.89163905)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (0.24119362, 0.29558754, 0.0024424992)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (-0.006546337, -0.011910774, 0.0012426774)
+                }
+            }
+        }
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+
+        def RealityKitCustomComponent "RealityKitContent_GestureComponent"
+        {
+            bool canScale = 0
+            uniform token info:id = "RealityKitContent.GestureComponent"
+            bool pivotOnDrag = 0
+        }
+    }
+
+    def "manilaFolder_closed2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707965, 0.2671492, -4.634755e-8)
+        }
+        prepend references = @Lab/Manilla Folders/manilaFolder_closed2.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.7008079, -0.70080805, 0.0941709, 0.09417088)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.3117715, 1.0629543, -0.90698475)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (0.24119362, 0.29558754, 0.0024424992)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (-0.00675701, -0.011910774, 0.0012426774)
+                }
+            }
+        }
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+
+        def RealityKitCustomComponent "RealityKitContent_GestureComponent"
+        {
+            bool canScale = 0
+            uniform token info:id = "RealityKitContent.GestureComponent"
+            bool pivotOnDrag = 0
+        }
+    }
+
+    def "manilaFolder_closed3" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707971, -0.23949204, 7.669479e-8)
+        }
+        prepend references = @Lab/Manilla Folders/manilaFolder_closed3.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70204294, -0.7020435, -0.08447101, -0.084471025)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.9275835, 1.0428085, -0.9715565)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (0.24119362, 0.29558754, 0.0024424992)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (-0.0059657544, -0.011910774, 0.0012426774)
+                }
+            }
+        }
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+
+        def RealityKitCustomComponent "RealityKitContent_GestureComponent"
+        {
+            bool canScale = 0
+            uniform token info:id = "RealityKitContent.GestureComponent"
+            bool pivotOnDrag = 0
+        }
     }
 }
 

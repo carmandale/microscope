@@ -9,7 +9,7 @@ reorder rootPrims = ["Root", "GridMaterial"]
 
 def Xform "Root"
 {
-    reorder nameChildren = ["GridMaterial", "Sphere"]
+    reorder nameChildren = ["antibodyProtein_complex", "healthyCell_complex", "killCell", "CancerCells", "killCell_1", "killCell_2"]
     rel material:binding = None (
         bindMaterialAs = "weakerThanDescendants"
     )
@@ -18,7 +18,7 @@ def Xform "Root"
 
     def "antibodyProtein_complex" (
         active = true
-        prepend references = @ADC/antibodyProtein_complex.usdc@
+        references = @ADC/antibodyProtein_complex.usdc@
     )
     {
         float3 xformOp:scale = (1, 1, 1)
@@ -55,48 +55,9 @@ def Xform "Root"
         }
     }
 
-    def "cancerCell_complex" (
-        active = true
-        prepend references = @ADC/cancerCell_complex.usdc@
-    )
-    {
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-0.75, 0, 0)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        def RealityKitComponent "Collider"
-        {
-            uint group = 1
-            uniform token info:id = "RealityKit.Collider"
-            uint mask = 4294967295
-            token type = "Default"
-
-            def RealityKitStruct "Shape"
-            {
-                float3 extent = (0.8030057, 0.9011064, 0.78866863)
-                token shapeType = "Box"
-
-                def RealityKitStruct "pose"
-                {
-                    float3 position = (-0.003299132, 0.0056425035, -0.013024569)
-                }
-            }
-        }
-
-        def RealityKitComponent "InputTarget"
-        {
-            uniform token info:id = "RealityKit.InputTarget"
-        }
-
-        def RealityKitCustomComponent "RealityKitContent_GestureComponent"
-        {
-            uniform token info:id = "RealityKitContent.GestureComponent"
-        }
-    }
-
     def "healthyCell_complex" (
         active = true
-        prepend references = @ADC/healthyCell_complex.usdc@
+        references = @ADC/healthyCell_complex.usdc@
     )
     {
         float3 xformOp:scale = (1, 1, 1)
@@ -127,9 +88,389 @@ def Xform "Root"
             uniform token info:id = "RealityKit.InputTarget"
         }
 
-        def RealityKitCustomComponent "RealityKitContent_GestureComponent"
+        def RealityKitCustomComponent "RealityKitContent_BreathComponent"
         {
-            uniform token info:id = "RealityKitContent.GestureComponent"
+            float duration = 5
+            uniform token info:id = "RealityKitContent.BreathComponent"
+        }
+    }
+
+    def RealityKitTimeline "killCell"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "default subtree animation"
+                int blendLayer = 500
+                double duration = 0.3333333432674408
+                uniform token info:id = "57004F2E-DD54-41E8-A9C5-16228E5BE03F"
+                double loopCount = 1
+                bool separateAnimatedValue = 1
+                double startTime = 0.06596980851870583
+                rel target = </Root/CancerCells/cancerCell_complex>
+
+                def RealityKitStruct "handoffType"
+                {
+                    token type = "defaultHandoffType"
+                }
+            }
+
+            def RealityKitAction "Disable_Entity"
+            {
+                string actionKind = "disable"
+                double duration = 0
+                uniform token info:id = "22751843-390B-4CEF-8FBB-C78255EC2393"
+                double startTime = 0.3993031518861467
+                rel target = </Root/CancerCells/cancerCell_complex>
+            }
+        }
+    }
+
+    def Xform "CancerCells" (
+        active = true
+    )
+    {
+        def "cancerCell_complex" (
+            active = true
+            references = @ADC/cancerCell_complex.usdc@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.75, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (0.8030057, 0.9011064, 0.78866863)
+                    float radius = 0.30758446
+                    token shapeType = "Sphere"
+
+                    def RealityKitStruct "pose"
+                    {
+                        float3 position = (-0.003299117, 0.0056425035, -0.013024569)
+                    }
+                }
+            }
+
+            def RealityKitComponent "InputTarget"
+            {
+                uniform token info:id = "RealityKit.InputTarget"
+            }
+
+            def RealityKitComponent "RCP_BehaviorsContainer"
+            {
+                rel behaviors = </Root/CancerCells/cancerCell_complex/OnCollision>
+                uniform token info:id = "RCP.BehaviorsContainer"
+            }
+
+            def Preliminary_Behavior "OnCollision"
+            {
+                rel actions = </Root/CancerCells/cancerCell_complex/OnCollision/Action>
+                uniform bool exclusive
+                rel triggers = </Root/CancerCells/cancerCell_complex/OnCollision/Trigger>
+
+                def Preliminary_Trigger "Trigger"
+                {
+                    rel affectedObjects = </Root/CancerCells/cancerCell_complex>
+                    rel colliders = </Root/antibodyProtein_complex>
+                    token info:id = "Collide"
+                }
+
+                def Preliminary_Action "Action"
+                {
+                    rel affectedObjects = </Root>
+                    rel animationLibraryKey = </Root/killCell>
+                    rel animationLibraryKeyOverrideKey = </Root/CancerCells/cancerCell_complex/OnCollision/Trigger>
+                    token info:id = "PlayTimeline"
+                    int loops = 0
+                    int performCount = 1
+                    token type = "serial"
+                }
+            }
+
+            def RealityKitComponent "AnimationLibrary"
+            {
+                uniform token info:id = "RealityKit.AnimationLibrary"
+
+                def RealityKitAnimationFile "cancerCell_complex"
+                {
+                    uniform bool looping = 1
+                    uniform string name = "cancerCell_complex"
+                }
+
+                def RealityKitAnimationFile "default_subtree_animation"
+                {
+                    uniform bool looping = 1
+                    uniform string name = "default subtree animation"
+                }
+            }
+
+            def RealityKitComponent "HierarchicalFade"
+            {
+                uniform token info:id = "RealityKit.HierarchicalFade"
+            }
+        }
+
+        def "cancerCell_complex_1" (
+            active = true
+            references = @ADC/cancerCell_complex.usdc@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1.2308033, 1.2308033, 1.2308033)
+            float3 xformOp:translate = (-0.6925937, -0.25302625, -0.69149566)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (0.8030057, 0.9011064, 0.78866863)
+                    float radius = 0.32
+                    token shapeType = "Sphere"
+
+                    def RealityKitStruct "pose"
+                    {
+                        float3 position = (-0.003299117, 0.0056425035, -0.013024569)
+                    }
+                }
+            }
+
+            def RealityKitComponent "InputTarget"
+            {
+                uniform token info:id = "RealityKit.InputTarget"
+            }
+
+            def RealityKitComponent "AnimationLibrary"
+            {
+                uniform token info:id = "RealityKit.AnimationLibrary"
+
+                def RealityKitAnimationFile "cancerCell_complex"
+                {
+                    uniform bool looping = 1
+                    uniform string name = "cancerCell_complex"
+                }
+
+                def RealityKitAnimationFile "default_subtree_animation"
+                {
+                    uniform bool looping = 1
+                    uniform string name = "default subtree animation"
+                }
+            }
+
+            def RealityKitComponent "HierarchicalFade"
+            {
+                uniform token info:id = "RealityKit.HierarchicalFade"
+            }
+
+            def RealityKitComponent "RCP_BehaviorsContainer"
+            {
+                rel behaviors = </Root/CancerCells/cancerCell_complex_1/OnCollision>
+                uniform token info:id = "RCP.BehaviorsContainer"
+            }
+
+            def Preliminary_Behavior "OnCollision"
+            {
+                rel actions = </Root/CancerCells/cancerCell_complex_1/OnCollision/Action>
+                uniform bool exclusive
+                rel triggers = </Root/CancerCells/cancerCell_complex_1/OnCollision/Trigger>
+
+                def Preliminary_Trigger "Trigger"
+                {
+                    rel affectedObjects = </Root/CancerCells/cancerCell_complex_1>
+                    rel colliders = </Root/antibodyProtein_complex>
+                    token info:id = "Collide"
+                }
+
+                def Preliminary_Action "Action"
+                {
+                    rel affectedObjects = </Root>
+                    rel animationLibraryKey = </Root/killCell_1>
+                    rel animationLibraryKeyOverrideKey = </Root/CancerCells/cancerCell_complex_1/OnCollision/Trigger>
+                    token info:id = "PlayTimeline"
+                    int loops = 0
+                    int performCount = 1
+                    token type = "serial"
+                }
+            }
+        }
+
+        def "cancerCell_complex_2" (
+            active = true
+            references = @ADC/cancerCell_complex.usdc@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.67537415, 0.67537415, 0.67537415)
+            float3 xformOp:translate = (-0.5955372, -0.3655784, 0.38841057)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (0.8030057, 0.9011064, 0.78866863)
+                    float radius = 0.3
+                    token shapeType = "Sphere"
+
+                    def RealityKitStruct "pose"
+                    {
+                        float3 position = (-0.003299117, 0.0056425035, -0.013024569)
+                    }
+                }
+            }
+
+            def RealityKitComponent "InputTarget"
+            {
+                uniform token info:id = "RealityKit.InputTarget"
+            }
+
+            def RealityKitComponent "AnimationLibrary"
+            {
+                uniform token info:id = "RealityKit.AnimationLibrary"
+
+                def RealityKitAnimationFile "cancerCell_complex"
+                {
+                    uniform bool looping = 1
+                    uniform string name = "cancerCell_complex"
+                }
+
+                def RealityKitAnimationFile "default_subtree_animation"
+                {
+                    uniform bool looping = 1
+                    uniform string name = "default subtree animation"
+                }
+            }
+
+            def RealityKitComponent "HierarchicalFade"
+            {
+                uniform token info:id = "RealityKit.HierarchicalFade"
+            }
+
+            def RealityKitComponent "RCP_BehaviorsContainer"
+            {
+                rel behaviors = </Root/CancerCells/cancerCell_complex_2/OnCollision>
+                uniform token info:id = "RCP.BehaviorsContainer"
+            }
+
+            def Preliminary_Behavior "OnCollision"
+            {
+                rel actions = </Root/CancerCells/cancerCell_complex_2/OnCollision/Action>
+                uniform bool exclusive
+                rel triggers = </Root/CancerCells/cancerCell_complex_2/OnCollision/Trigger>
+
+                def Preliminary_Trigger "Trigger"
+                {
+                    rel affectedObjects = </Root/CancerCells/cancerCell_complex_2>
+                    rel colliders = </Root/antibodyProtein_complex>
+                    token info:id = "Collide"
+                }
+
+                def Preliminary_Action "Action"
+                {
+                    rel affectedObjects = </Root>
+                    rel animationLibraryKey = </Root/killCell_2>
+                    rel animationLibraryKeyOverrideKey = </Root/CancerCells/cancerCell_complex_2/OnCollision/Trigger>
+                    token info:id = "PlayTimeline"
+                    int loops = 0
+                    int performCount = 1
+                    token type = "serial"
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "killCell_1"
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "default subtree animation"
+                int blendLayer = 500
+                double duration = 0.3333333432674408
+                uniform token info:id = "57004F2E-DD54-41E8-A9C5-16228E5BE03F"
+                double loopCount = 1
+                bool separateAnimatedValue = 1
+                double startTime = 0.06596980851870583
+                rel target = </Root/CancerCells/cancerCell_complex_1>
+
+                def RealityKitStruct "handoffType"
+                {
+                    token type = "defaultHandoffType"
+                }
+            }
+
+            def RealityKitAction "Disable_Entity"
+            {
+                string actionKind = "disable"
+                double duration = 0
+                uniform token info:id = "22751843-390B-4CEF-8FBB-C78255EC2393"
+                double startTime = 0.3993031518861467
+                rel target = </Root/CancerCells/cancerCell_complex_1>
+            }
+        }
+    }
+
+    def RealityKitTimeline "killCell_2"
+    {
+        float2 ui:nodegraph:node:pos = (40, 40)
+        int ui:nodegraph:node:stackingOrder = 2
+
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "default subtree animation"
+                int blendLayer = 500
+                double duration = 0.3333333432674408
+                uniform token info:id = "57004F2E-DD54-41E8-A9C5-16228E5BE03F"
+                double loopCount = 1
+                bool separateAnimatedValue = 1
+                double startTime = 0.06596980851870583
+                rel target = </Root/CancerCells/cancerCell_complex_2>
+
+                def RealityKitStruct "handoffType"
+                {
+                    token type = "defaultHandoffType"
+                }
+            }
+
+            def RealityKitAction "Disable_Entity"
+            {
+                string actionKind = "disable"
+                double duration = 0
+                uniform token info:id = "22751843-390B-4CEF-8FBB-C78255EC2393"
+                double startTime = 0.3993031518861467
+                rel target = </Root/CancerCells/cancerCell_complex_2>
+            }
         }
     }
 }

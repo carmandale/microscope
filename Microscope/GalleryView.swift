@@ -95,7 +95,16 @@ struct GalleryView: View {
     
     var body: some View {
         NavigationStack {
-            galleryContent
+            Group {
+                switch viewMode {
+                case .gallery:
+                    galleryContent
+                case .adc:
+                    ADC_2D_View()
+                case .lab:
+                    LAB_2D_View()
+                }
+            }
             .safeAreaInset(edge: .bottom) {
                 Picker("View Mode", selection: $viewMode) {
                     ForEach(ViewMode.allCases, id: \.self) { mode in

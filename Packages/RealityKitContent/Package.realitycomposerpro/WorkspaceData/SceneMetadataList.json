@@ -15,36 +15,7 @@
     "objectMetadataList" : [
       [
         "1D572CEB-057A-41C3-B575-04C37501A3C0",
-        "Root",
-        "lab_v001"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "1D572CEB-057A-41C3-B575-04C37501A3C0",
-        "Root",
-        "Sphere_Left"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "1D572CEB-057A-41C3-B575-04C37501A3C0",
-        "Root",
-        "lab_v001",
-        "_materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "1D572CEB-057A-41C3-B575-04C37501A3C0",
-        "Root",
-        "Sphere_Right"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -62,7 +33,29 @@
       },
       [
         "1D572CEB-057A-41C3-B575-04C37501A3C0",
-        "Root"
+        "Root",
+        "Sphere_Left"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "1D572CEB-057A-41C3-B575-04C37501A3C0",
+        "Root",
+        "Sphere_Right"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "411E712E-6CF5-46FB-B2B5-198FABD660B6" : {
+    "objectMetadataList" : [
+      [
+        "411E712E-6CF5-46FB-B2B5-198FABD660B6",
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -74,7 +67,55 @@
     "objectMetadataList" : [
       [
         "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
+        "folder3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
+        "station_02",
+        "microscope_01_001"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
         "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
+        "folder3",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
+        "station_01",
+        "desk_large_006"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
+        "station_01"
       ],
       {
         "isExpanded" : true,
@@ -93,7 +134,56 @@
         "559F0420-FF8C-4149-8F96-49DF927D735B",
         "root",
         "station_02",
-        "microscope_01_001"
+        "desk_large"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
+        "frisdge_large_004"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
+        "floor"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
+        "Timeline",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "56CFBA37-B4F9-4849-9B48-1491ED8F89FB" : {
+    "objectMetadataList" : [
+      [
+        "56CFBA37-B4F9-4849-9B48-1491ED8F89FB",
+        "root",
+        "manillaFolder_closed_mesh_001"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "56CFBA37-B4F9-4849-9B48-1491ED8F89FB",
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -118,6 +208,30 @@
       [
         "65F6F990-A780-4474-B78B-572E0E4E273D",
         "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "6EFD026C-8554-4EB4-B3B4-003D59C72C47" : {
+    "objectMetadataList" : [
+      [
+        "6EFD026C-8554-4EB4-B3B4-003D59C72C47",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "72B3146D-0EB6-4659-9415-1111CE0458B9" : {
+    "objectMetadataList" : [
+      [
+        "72B3146D-0EB6-4659-9415-1111CE0458B9",
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -166,11 +280,147 @@
 
     ]
   },
+  "C8839E85-627A-4492-AA62-4F4685E6CF0F" : {
+    "objectMetadataList" : [
+      [
+        "C8839E85-627A-4492-AA62-4F4685E6CF0F",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C8839E85-627A-4492-AA62-4F4685E6CF0F",
+        "root",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C8839E85-627A-4492-AA62-4F4685E6CF0F",
+        "root",
+        "manillaFolder_closed_mesh_001"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "C98E1505-AFC7-4392-81AB-0AB0AEAA6FC7" : {
+    "objectMetadataList" : [
+      [
+        "C98E1505-AFC7-4392-81AB-0AB0AEAA6FC7",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C98E1505-AFC7-4392-81AB-0AB0AEAA6FC7",
+        "root",
+        "manillaFolder_closed_mesh_001"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C98E1505-AFC7-4392-81AB-0AB0AEAA6FC7",
+        "root",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "D66134B1-3681-4A8E-AFE5-29F257229F3B" : {
     "objectMetadataList" : [
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "Timeline",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "killCell_2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "killCell_1",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "killCell_1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "killCell"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "CancerCells"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "killCell_2",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "killCell",
+        "Track"
       ],
       {
         "isExpanded" : true,
