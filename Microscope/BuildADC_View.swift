@@ -42,6 +42,6 @@ struct ADC: View {
     }
 }
 
-#Preview {
-    ADC()
-}
+//#Preview {
+//    ADC()
+//}
