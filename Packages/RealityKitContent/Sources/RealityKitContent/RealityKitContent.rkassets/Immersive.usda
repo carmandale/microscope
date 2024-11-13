@@ -9,58 +9,17 @@ reorder rootPrims = ["Root", "GridMaterial"]
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
-    def Sphere "Sphere_Right" (
-        active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
-    )
-    {
-        rel material:binding = </Root/GridMaterial/GridMaterial> (
-            bindMaterialAs = "weakerThanDescendants"
-        )
-        double radius = 0.1
-        quatf xformOp:orient = (1, 0, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0.5, 1.5, -1.5)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
-    def Sphere "Sphere_Left" (
-        active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
-    )
-    {
-        rel material:binding = </Root/GridMaterial/GridMaterial> (
-            bindMaterialAs = "weakerThanDescendants"
-        )
-        double radius = 0.1
-        quatf xformOp:orient = (1, 0, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-0.5, 1.5, -1.5)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
-    def "GridMaterial" (
-        active = true
-        references = @Materials/GridMaterial.usda@
-    )
-    {
-        quatf xformOp:orient = (1, 0, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0, 0, 0)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
+    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial", "folderOpen"]
     def "Microscope" (
         customData = {
             float3 rotationEulerHint = (0, 3.1415927, 0)
         }
-        prepend references = @Microscope/Microscope.usdz@
+        references = @Microscope/Microscope.usdz@
     )
     {
         quatf xformOp:orient = (-4.371139e-8, 0, 1, 0)
         float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0, 1.0299054, -1.0064222)
+        float3 xformOp:translate = (0.031035222, 1.0149322, -0.86546355)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         def RealityKitComponent "Collider"
@@ -98,68 +57,12 @@ def Xform "Root"
         }
     }
 
-    def "lab_v001" (
-        active = true
-        customData = {
-            float3 rotationEulerHint = (-1.5707964, 0, 0)
-        }
-        prepend references = @Lab/lab_v001.usdc@
-    )
-    {
-        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (1.5979514, -2.9802322e-8, -1.407977)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        over "station_02"
-        {
-            over "desk_large"
-            {
-                def RealityKitComponent "Collider"
-                {
-                    uint group = 1
-                    uniform token info:id = "RealityKit.Collider"
-                    uint mask = 4294967295
-                    token type = "Default"
-
-                    def RealityKitStruct "Shape"
-                    {
-                        float3 extent = (2.077284, 1.4262189, 1.0134689)
-                        token shapeType = "Box"
-
-                        def RealityKitStruct "pose"
-                        {
-                            float3 position = (-0.05735433, 0.004531145, 0.5067343)
-                        }
-                    }
-                }
-
-                def RealityKitComponent "RigidBody"
-                {
-                    uniform token info:id = "RealityKit.RigidBody"
-                    token motionType = "Static"
-
-                    def RealityKitStruct "massFrame"
-                    {
-                        def RealityKitStruct "m_pose"
-                        {
-                        }
-                    }
-
-                    def RealityKitStruct "material"
-                    {
-                    }
-                }
-            }
-        }
-    }
-
     def "manilaFolder_closed1" (
         active = true
         customData = {
             float3 rotationEulerHint = (-1.5707964, 0.13382824, -8.2695834e-8)
         }
-        prepend references = @Lab/Manilla Folders/manilaFolder_closed1.usdc@
+        references = @Lab/Manilla Folders/manilaFolder_closed1.usdc@
     )
     {
         quatf xformOp:orient = (0.70552427, -0.7055243, 0.047280155, 0.047280103)
@@ -181,7 +84,7 @@ def Xform "Root"
 
                 def RealityKitStruct "pose"
                 {
-                    float3 position = (-0.006546337, -0.011910774, 0.0012426774)
+                    float3 position = (-0.0055963546, -0.011910774, 0.0012426774)
                 }
             }
         }
@@ -196,6 +99,7 @@ def Xform "Root"
             bool canScale = 0
             uniform token info:id = "RealityKitContent.GestureComponent"
             bool pivotOnDrag = 0
+            bool preserveOrientationOnPivotDrag = 1
         }
     }
 
@@ -204,7 +108,7 @@ def Xform "Root"
         customData = {
             float3 rotationEulerHint = (-1.5707965, 0.2671492, -4.634755e-8)
         }
-        prepend references = @Lab/Manilla Folders/manilaFolder_closed2.usdc@
+        references = @Lab/Manilla Folders/manilaFolder_closed2.usdc@
     )
     {
         quatf xformOp:orient = (0.7008079, -0.70080805, 0.0941709, 0.09417088)
@@ -226,7 +130,7 @@ def Xform "Root"
 
                 def RealityKitStruct "pose"
                 {
-                    float3 position = (-0.00675701, -0.011910774, 0.0012426774)
+                    float3 position = (-0.005834002, -0.011910774, 0.0012426774)
                 }
             }
         }
@@ -241,6 +145,7 @@ def Xform "Root"
             bool canScale = 0
             uniform token info:id = "RealityKitContent.GestureComponent"
             bool pivotOnDrag = 0
+            bool preserveOrientationOnPivotDrag = 1
         }
     }
 
@@ -249,7 +154,7 @@ def Xform "Root"
         customData = {
             float3 rotationEulerHint = (-1.4799621, -0.23526071, -0.19183435)
         }
-        prepend references = @Lab/Manilla Folders/manilaFolder_closed3.usdc@
+        references = @Lab/Manilla Folders/manilaFolder_closed3.usdc@
     )
     {
         quatf xformOp:orient = (0.72242856, -0.67483664, -0.02214018, -0.14900431)
@@ -271,7 +176,7 @@ def Xform "Root"
 
                 def RealityKitStruct "pose"
                 {
-                    float3 position = (-0.0059657544, -0.011910774, 0.0012426774)
+                    float3 position = (-0.006440919, -0.011910774, 0.0012426774)
                 }
             }
         }
@@ -286,6 +191,170 @@ def Xform "Root"
             bool canScale = 0
             uniform token info:id = "RealityKitContent.GestureComponent"
             bool pivotOnDrag = 0
+            bool preserveOrientationOnPivotDrag = 1
+        }
+    }
+
+    def "manilaFolder_anim" (
+        active = true
+        references = @Lab/Manilla Folders/animation/manilaFolder_anim.usdc@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.568698, 1.3640887, -0.97)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "AnimationLibrary"
+        {
+            token info:id = "RealityKit.AnimationLibrary"
+
+            def RealityKitAnimationFile "default_subtree_animation"
+            {
+                uniform bool looping = 1
+                uniform string name = "default subtree animation"
+            }
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (0.24119362, 0.29558754, 0.0024424992)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (-0.008958146, -0.011910774, 0.0012426774)
+                }
+            }
+        }
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+
+        def RealityKitCustomComponent "RealityKitContent_GestureComponent"
+        {
+            bool canDrag = 1
+            bool canRotate = 1
+            bool canScale = 0
+            uniform token info:id = "RealityKitContent.GestureComponent"
+            bool pivotOnDrag = 0
+            bool preserveOrientationOnPivotDrag = 0
+        }
+
+        def RealityKitComponent "RCP_BehaviorsContainer"
+        {
+            rel behaviors = </Root/manilaFolder_anim/OnTap>
+            uniform token info:id = "RCP.BehaviorsContainer"
+        }
+
+        def Preliminary_Behavior "OnTap"
+        {
+            rel actions = </Root/manilaFolder_anim/OnTap/Action>
+            uniform bool exclusive
+            rel triggers = </Root/manilaFolder_anim/OnTap/Trigger>
+
+            def Preliminary_Trigger "Trigger"
+            {
+                rel affectedObjects = </Root/manilaFolder_anim>
+                token info:id = "TapGesture"
+            }
+
+            def Preliminary_Action "Action"
+            {
+                rel affectedObjects = </Root>
+                rel animationLibraryKey = </Root/folderOpen>
+                rel animationLibraryKeyOverrideKey = </Root/manilaFolder_anim/OnTap/Trigger>
+                token info:id = "PlayTimeline"
+                int loops = 0
+                int performCount = 1
+                token type = "serial"
+            }
+        }
+    }
+
+    def RealityKitTimeline "folderOpen"
+    {
+        reorder nameChildren = ["Track2", "Track"]
+        def RealityKitTrack "Track"
+        {
+            reorder nameChildren = ["Animation", "Animation2"]
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "default subtree animation"
+                int blendLayer = 500
+                double duration = 3.299999952316284
+                uniform token info:id = "FE0C6430-8BEF-40D5-A31A-188E743B57D7"
+                double loopCount = 1
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/manilaFolder_anim>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def "lab_AO" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        references = @Lab/Lab-AO/lab_AO.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (1.5979, 0, -1.4079)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Mesh_210"
+        {
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (6.348743, 10.430695, 1.0134689)
+                    token shapeType = "Box"
+
+                    def RealityKitStruct "pose"
+                    {
+                        float3 position = (-0.019243002, 0.0019857883, 0.5067343)
+                    }
+                }
+            }
+
+            def RealityKitComponent "RigidBody"
+            {
+                uniform token info:id = "RealityKit.RigidBody"
+                token motionType = "Static"
+
+                def RealityKitStruct "massFrame"
+                {
+                    def RealityKitStruct "m_pose"
+                    {
+                    }
+                }
+
+                def RealityKitStruct "material"
+                {
+                }
+            }
         }
     }
 }

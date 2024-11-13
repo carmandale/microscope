@@ -9,16 +9,13 @@ class AppModel {
     private var audioPlayer: AVAudioPlayer?
     
     init() {
-        RealityKitContent.GestureComponent.registerComponent()
-        BreathComponent.registerComponent()
-        BreathSystem.registerSystem()
-        // Setup and play background music
+        // Remove component/system registrations since they're now handled in MicroscopeApp
         setupBackgroundMusic()
     }
     
     // Immersive space IDs
-    let labSpaceID = "lab"
-    let adcSpaceID = "adc"
+    let labSpaceID = "ImmersiveSpace"
+    let adcSpaceID = "ADCSpace"
     
     enum ImmersiveSpaceState {
         case closed
@@ -26,7 +23,7 @@ class AppModel {
         case open
     }
     
-    var immersiveSpaceState = ImmersiveSpaceState.closed
+    var immersiveSpaceState: ImmersiveSpaceState = .closed
     var currentSpaceID: String?  // Track which space is currently open
     
     private func setupBackgroundMusic() {

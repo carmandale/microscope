@@ -9,7 +9,7 @@ reorder rootPrims = ["Root", "GridMaterial"]
 
 def Xform "Root"
 {
-    reorder nameChildren = ["antibodyProtein_complex", "healthyCell_complex", "killCell", "CancerCells", "killCell_1", "killCell_2"]
+    reorder nameChildren = ["antibodyProtein_complex", "healthyCell_complex", "killCell", "CancerCells", "killCell_1", "killCell_2", "bloodVessel", "bloodCell", "extraCancerCells"]
     rel material:binding = None (
         bindMaterialAs = "weakerThanDescendants"
     )
@@ -470,6 +470,162 @@ def Xform "Root"
                 uniform token info:id = "22751843-390B-4CEF-8FBB-C78255EC2393"
                 double startTime = 0.3993031518861467
                 rel target = </Root/CancerCells/cancerCell_complex_2>
+            }
+        }
+    }
+
+    def "bloodVessel" (
+        active = false
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        references = @Blood Vessel/bloodVessel.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (5.1968455, 5.1968455, 5.1968455)
+        float3 xformOp:translate = (0, -1.02, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "bloodCell" (
+        active = false
+        customData = {
+            float3 rotationEulerHint = (-1.9391028, -2.2351742e-7, 0.4619928)
+        }
+        references = @Blood Vessel/bloodCell.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.5506447, -0.8027288, -0.18879755, 0.12950857)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0.31507403, -0.7572228, 0.64405566)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitCustomComponent "RealityKitContent_TurnTableComponent"
+        {
+            uniform token info:id = "RealityKitContent.TurnTableComponent"
+        }
+    }
+
+    def Xform "extraCancerCells" (
+        active = true
+    )
+    {
+        reorder nameChildren = ["cancerCell_Lung", "cancerCell_Breast", "cancerCell_Colon"]
+        float3 xformOp:translate = (0, 0, -0.7421888)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def "cancerCell_Colon" (
+            active = true
+            prepend references = @ADC/CancerCells/colon/cancerCell_Colon.usdc@
+        )
+        {
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0.40900052, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "cancerCell_Breast" (
+            active = true
+            prepend references = @ADC/CancerCells/breast/cancerCell_Breast.usdc@
+        )
+        {
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.5564771, 0.40900004, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "cancerCell_Lung" (
+            active = true
+            prepend references = @ADC/CancerCells/lung/cancerCell_Lung.usdc@
+        )
+        {
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.6285466, 0.40900004, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def "bloodVessel_v004" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        prepend references = @Blood Vessel/bloodVessel_v004.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (5, 5, 5)
+        float3 xformOp:translate = (0, -1.02, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "_materials"
+        {
+            over "bloodVessel_mat_002"
+            {
+                token outputs:mtlx:surface.connect = </Root/bloodVessel_v004/_materials/bloodVessel_mat_002/PreviewSurface.outputs:out>
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/bloodVessel_v004/_materials/bloodVessel_mat_002/Principled_BSDF_001.outputs:surface>
+                float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (417.06055, 125.73008)
+                int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 19
+
+                over "Principled_BSDF_001" (
+                    active = false
+                )
+                {
+                }
+
+                def Shader "PreviewSurface"
+                {
+                    uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                    float inputs:clearcoat
+                    float inputs:clearcoatRoughness
+                    color3f inputs:diffuseColor.connect = </Root/bloodVessel_v004/_materials/bloodVessel_mat_002/Image.outputs:out>
+                    color3f inputs:emissiveColor.connect = </Root/bloodVessel_v004/_materials/bloodVessel_mat_002/Image_1.outputs:out>
+                    float inputs:ior
+                    float3 inputs:normal.connect = </Root/bloodVessel_v004/_materials/bloodVessel_mat_002/Image_2.outputs:out>
+                    float inputs:occlusion
+                    float inputs:opacity
+                    float inputs:roughness
+                    token outputs:out
+                    float2 ui:nodegraph:node:pos = (-255, 105)
+                    int ui:nodegraph:node:stackingOrder = 5
+                    string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
+                }
+
+                def Shader "Image"
+                {
+                    uniform token info:id = "ND_image_color3"
+                    asset inputs:file = @Blood Vessel/textures/Baked.png@
+                    color3f outputs:out
+                    float2 ui:nodegraph:node:pos = (-776.98047, -155.0664)
+                    int ui:nodegraph:node:stackingOrder = 4
+                }
+
+                def Shader "Image_1"
+                {
+                    uniform token info:id = "ND_image_color3"
+                    asset inputs:file = @Blood Vessel/textures/txt_bloodVessel_mat_Emissive_baked.jpg@
+                    color3f outputs:out
+                    float2 ui:nodegraph:node:pos = (-1024.5642, 573.0487)
+                    int ui:nodegraph:node:stackingOrder = 15
+                }
+
+                def Shader "Image_2"
+                {
+                    uniform token info:id = "ND_image_vector3"
+                    asset inputs:file = @Blood Vessel/textures/txt_bloodVessel_mat_Normal_baked.png@
+                    float3 outputs:out
+                    float2 ui:nodegraph:node:pos = (-1165.7136, 68.844574)
+                    int ui:nodegraph:node:stackingOrder = 17
+                }
+            }
+        }
+
+        over "bloodVessel_curvedEnds"
+        {
+            over "bloodVessel_low_001"
+            {
             }
         }
     }

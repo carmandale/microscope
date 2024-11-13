@@ -15,14 +15,6 @@
     "objectMetadataList" : [
       [
         "1D572CEB-057A-41C3-B575-04C37501A3C0",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "1D572CEB-057A-41C3-B575-04C37501A3C0",
         "Root",
         "Microscope"
       ],
@@ -33,8 +25,7 @@
       },
       [
         "1D572CEB-057A-41C3-B575-04C37501A3C0",
-        "Root",
-        "Sphere_Left"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -43,7 +34,8 @@
       [
         "1D572CEB-057A-41C3-B575-04C37501A3C0",
         "Root",
-        "Sphere_Right"
+        "lab_v001",
+        "_materials"
       ],
       {
         "isExpanded" : true,
@@ -51,10 +43,10 @@
       }
     ]
   },
-  "411E712E-6CF5-46FB-B2B5-198FABD660B6" : {
+  "2CB9F451-ADD1-40F4-9EE9-10AA46196386" : {
     "objectMetadataList" : [
       [
-        "411E712E-6CF5-46FB-B2B5-198FABD660B6",
+        "2CB9F451-ADD1-40F4-9EE9-10AA46196386",
         "root"
       ],
       {
@@ -68,6 +60,15 @@
       [
         "559F0420-FF8C-4149-8F96-49DF927D735B",
         "root",
+        "station_02"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "559F0420-FF8C-4149-8F96-49DF927D735B",
+        "root",
         "station_02",
         "microscope_01_001"
       ],
@@ -77,112 +78,6 @@
       },
       [
         "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "station_01",
-        "desk_large_006"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "folder3"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "station_01"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "frisdge_large_004"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "floor"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "folder3",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "station_02",
-        "desk_large"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "Timeline",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "559F0420-FF8C-4149-8F96-49DF927D735B",
-        "root",
-        "station_02"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      }
-    ]
-  },
-  "56CFBA37-B4F9-4849-9B48-1491ED8F89FB" : {
-    "objectMetadataList" : [
-      [
-        "56CFBA37-B4F9-4849-9B48-1491ED8F89FB",
-        "root",
-        "manillaFolder_closed_mesh_001"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "56CFBA37-B4F9-4849-9B48-1491ED8F89FB",
         "root"
       ],
       {
@@ -215,34 +110,22 @@
       }
     ]
   },
-  "6EFD026C-8554-4EB4-B3B4-003D59C72C47" : {
-    "objectMetadataList" : [
-      [
-        "6EFD026C-8554-4EB4-B3B4-003D59C72C47",
-        "root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      }
-    ]
-  },
-  "72B3146D-0EB6-4659-9415-1111CE0458B9" : {
-    "objectMetadataList" : [
-      [
-        "72B3146D-0EB6-4659-9415-1111CE0458B9",
-        "root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      }
-    ]
-  },
   "7F0CCEB1-64D4-4099-BCDC-072DC47B2738" : {
     "objectMetadataList" : [
       [
         "7F0CCEB1-64D4-4099-BCDC-072DC47B2738",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "86A904F1-39B1-46AC-900A-EE5044D4D851" : {
+    "objectMetadataList" : [
+      [
+        "86A904F1-39B1-46AC-900A-EE5044D4D851",
         "root"
       ],
       {
@@ -275,15 +158,10 @@
       }
     ]
   },
-  "A21C1E11-ABB0-4972-8159-55AD3A9AA5B3" : {
-    "objectMetadataList" : [
-
-    ]
-  },
-  "A334C46B-C9AD-4664-B40A-B7C43C207923" : {
+  "999B58A5-F48A-4D9D-9230-EA74ACB3DB36" : {
     "objectMetadataList" : [
       [
-        "A334C46B-C9AD-4664-B40A-B7C43C207923",
+        "999B58A5-F48A-4D9D-9230-EA74ACB3DB36",
         "Root"
       ],
       {
@@ -292,29 +170,16 @@
       }
     ]
   },
-  "C8839E85-627A-4492-AA62-4F4685E6CF0F" : {
+  "A21C1E11-ABB0-4972-8159-55AD3A9AA5B3" : {
+    "objectMetadataList" : [
+
+    ]
+  },
+  "A2ADA452-D2DD-497A-91A1-F707FFA90673" : {
     "objectMetadataList" : [
       [
-        "C8839E85-627A-4492-AA62-4F4685E6CF0F",
+        "A2ADA452-D2DD-497A-91A1-F707FFA90673",
         "root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C8839E85-627A-4492-AA62-4F4685E6CF0F",
-        "root",
-        "manillaFolder_closed_mesh_001"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C8839E85-627A-4492-AA62-4F4685E6CF0F",
-        "root",
-        "_materials"
       ],
       {
         "isExpanded" : true,
@@ -322,10 +187,22 @@
       }
     ]
   },
-  "C98E1505-AFC7-4392-81AB-0AB0AEAA6FC7" : {
+  "B7112714-A6B3-49FA-B749-28F2836E8CB4" : {
     "objectMetadataList" : [
       [
-        "C98E1505-AFC7-4392-81AB-0AB0AEAA6FC7",
+        "B7112714-A6B3-49FA-B749-28F2836E8CB4",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "D0112AE0-4329-4E70-BAAD-2C2D5C989029" : {
+    "objectMetadataList" : [
+      [
+        "D0112AE0-4329-4E70-BAAD-2C2D5C989029",
         "root",
         "_materials"
       ],
@@ -334,16 +211,16 @@
         "isLocked" : false
       },
       [
-        "C98E1505-AFC7-4392-81AB-0AB0AEAA6FC7",
+        "D0112AE0-4329-4E70-BAAD-2C2D5C989029",
         "root",
-        "manillaFolder_closed_mesh_001"
+        "manillaFolder_closed1"
       ],
       {
         "isExpanded" : true,
         "isLocked" : false
       },
       [
-        "C98E1505-AFC7-4392-81AB-0AB0AEAA6FC7",
+        "D0112AE0-4329-4E70-BAAD-2C2D5C989029",
         "root"
       ],
       {
@@ -357,8 +234,9 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "killCell_2",
-        "Track"
+        "bloodVessel_v004",
+        "_materials",
+        "bloodVessel_mat_002"
       ],
       {
         "isExpanded" : true,
@@ -367,7 +245,8 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "killCell"
+        "antibodyProtein_complex",
+        "ADC_complex_001"
       ],
       {
         "isExpanded" : true,
@@ -376,37 +255,7 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "killCell_1",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "killCell_1"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "killCell",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "Timeline",
-        "Track"
+        "extraCancerCells"
       ],
       {
         "isExpanded" : true,
@@ -423,7 +272,8 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "CancerCells"
+        "bloodVessel_v004",
+        "_materials"
       ],
       {
         "isExpanded" : true,
@@ -432,7 +282,26 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "killCell_2"
+        "antibodyProtein_complex"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "bloodVessel_v004"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "bloodVessel_v004",
+        "bloodVessel_curvedEnds"
       ],
       {
         "isExpanded" : true,
