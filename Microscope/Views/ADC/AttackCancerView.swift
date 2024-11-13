@@ -10,8 +10,10 @@ import RealityKit
 import RealityKitContent
 
 struct AttackCancerView: View {
-    let transformPrefix = "CancerCells_"
-    let modelName = "CancerCell"  // The name of your cancer cell model
+    let cancerCellPrefix = "CancerCells_"
+    let healthyCellPrefix = "HealthyCells_"
+    let cancerModelName = "CancerCell"
+    let healthyModelName = "HealthyCell"
     
     var body: some View {
         RealityView { content in
@@ -21,18 +23,20 @@ struct AttackCancerView: View {
             }
             print("✅ Successfully loaded scene")
             
-            // Load the cancer cell model
-            guard let cancerCellModel = try? await Entity(named: modelName, in: realityKitContentBundle) else {
-                print("❌ Failed to load cancer cell model: \(modelName)")
-                if let entityURLs = realityKitContentBundle.urls(forResourcesWithExtension: "usdz", subdirectory: nil) {
-                    print("📋 Available models in bundle:")
-                    entityURLs.forEach { print("- \($0.lastPathComponent)") }
-                }
+            // Load both cell models
+            guard let cancerCellModel = try? await Entity(named: cancerModelName, in: realityKitContentBundle) else {
+                print("❌ Failed to load cancer cell model: \(cancerModelName)")
                 return
             }
             print("✅ Successfully loaded cancer cell model")
             
-            // First, find the blood vessel entity
+            guard let healthyCellModel = try? await Entity(named: healthyModelName, in: realityKitContentBundle) else {
+                print("❌ Failed to load healthy cell model: \(healthyModelName)")
+                return
+            }
+            print("✅ Successfully loaded healthy cell model")
+            
+            // Find the blood vessel entity
             guard let bloodVessel = scene.findEntity(named: "bloodVessel_v004") else {
                 print("❌ Could not find blood vessel entity")
                 return
@@ -43,50 +47,73 @@ struct AttackCancerView: View {
             let bloodVesselTransform = bloodVessel.transform
             print("🔄 Blood vessel transform: \(bloodVesselTransform)")
             
-            // Find all transforms containing "CancerCells"
-            let transforms = bloodVessel.findAllTransforms(containing: transformPrefix)
-            print("🔍 Found \(transforms.count) transforms containing '\(transformPrefix)'")
+            // Find and process both cell types
+            let cancerTransforms = bloodVessel.findAllTransforms(containing: cancerCellPrefix)
+            let healthyTransforms = bloodVessel.findAllTransforms(containing: healthyCellPrefix)
             
-            for (index, transform) in transforms.enumerated() {
-                // Create debug sphere
-                let sphere = ModelEntity(
-                    mesh: .generateSphere(radius: 0.2),
-                    materials: [SimpleMaterial(
-                        color: .red,
-                        isMetallic: true
-                    )]
-                )
+            print("🔍 Found \(cancerTransforms.count) cancer cells and \(healthyTransforms.count) healthy cells")
+            
+            // Place cancer cells
+            for (index, transform) in cancerTransforms.enumerated() {
+                // Create debug sphere (red for cancer)
+                let sphere = createDebugSphere(color: .red)
                 
-                // Clone the cancer cell model
+                // Clone and setup cancer cell
                 let cellInstance = cancerCellModel.clone(recursive: true)
-                cellInstance.scale = [1.0, 1.0, 1.0]
+                print("📏 Cancer cell \(index + 1) original scale: \(cellInstance.scale)")
                 
-                // Get the world transform
+                // Add cell component
+                cellInstance.components[CellComponent.self] = CellComponent(type: .cancer)
+                
+                // Position both entities
                 let worldTransform = transform.convert(transform: .init(), to: scene)
+                sphere.transform = worldTransform
+                cellInstance.transform = worldTransform
                 
-                // Position both the sphere and cell
-                var sphereTransform = worldTransform
-                sphereTransform.scale = [1.0, 1.0, 1.0] // Keep sphere scale constant
-                sphere.transform = sphereTransform
-                
-                var cellTransform = worldTransform
-                cellTransform.scale = cellInstance.scale
-                cellInstance.transform = cellTransform
-                
-                print("📍 Transform \(index + 1) '\(transform.name)'")
-                print("  Local position: \(transform.position)")
-                print("  World position: \(worldTransform.translation)")
-                print("  Cell scale: \(cellInstance.scale)")
-                
-                // Add both to the scene
+                // Add to scene
                 scene.addChild(sphere)
                 scene.addChild(cellInstance)
+                
+                print("📍 Placed cancer cell \(index + 1) at \(worldTransform.translation)")
+            }
+            
+            // Place healthy cells
+            for (index, transform) in healthyTransforms.enumerated() {
+                // Create debug sphere (green for healthy)
+                let sphere = createDebugSphere(color: .green)
+                
+                // Clone and setup healthy cell
+                let cellInstance = healthyCellModel.clone(recursive: true)
+                print("📏 Healthy cell \(index + 1) original scale: \(cellInstance.scale)")
+                
+                // Add cell component
+                cellInstance.components[CellComponent.self] = CellComponent(type: .healthy)
+                
+                // Position both entities
+                let worldTransform = transform.convert(transform: .init(), to: scene)
+                sphere.transform = worldTransform
+                cellInstance.transform = worldTransform
+                
+                // Add to scene
+                scene.addChild(sphere)
+                scene.addChild(cellInstance)
+                
+                print("📍 Placed healthy cell \(index + 1) at \(worldTransform.translation)")
             }
             
             content.add(scene)
-            print("✅ Added scene to content with \(transforms.count) pairs of spheres and cancer cells")
+            print("✅ Added scene to content with \(cancerTransforms.count) cancer cells and \(healthyTransforms.count) healthy cells")
         }
-        .installGestures()
+    }
+    
+    private func createDebugSphere(color: UIColor) -> ModelEntity {
+        ModelEntity(
+            mesh: .generateSphere(radius: 0.2),
+            materials: [SimpleMaterial(
+                color: color,
+                isMetallic: true
+            )]
+        )
     }
 }
 

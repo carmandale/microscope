@@ -55,6 +55,18 @@
       }
     ]
   },
+  "52EDC083-525F-4896-BF0B-1C4F24F16CDB" : {
+    "objectMetadataList" : [
+      [
+        "52EDC083-525F-4896-BF0B-1C4F24F16CDB",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "559F0420-FF8C-4149-8F96-49DF927D735B" : {
     "objectMetadataList" : [
       [
@@ -302,6 +314,27 @@
         "Root",
         "bloodVessel_v004",
         "bloodVessel_curvedEnds"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "EC108D8C-705C-4A0F-B3AE-2A51E3ACB1F9" : {
+    "objectMetadataList" : [
+      [
+        "EC108D8C-705C-4A0F-B3AE-2A51E3ACB1F9",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "EC108D8C-705C-4A0F-B3AE-2A51E3ACB1F9",
+        "Root",
+        "Sphere"
       ],
       {
         "isExpanded" : true,

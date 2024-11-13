@@ -12,7 +12,7 @@ def Xform "Root"
 {
     def "antibodyProtein_complex" (
         active = true
-        prepend references = @antibodyProtein_complex.usdc@
+        references = @ADC/antibodyProtein_complex.usdc@
     )
     {
         float3 xformOp:scale = (1, 1, 1)

@@ -13,7 +13,9 @@
     "Lab\/Manilla Folders\/manilaFolder_closed3.usdc",
     "ADC\/CancerCells\/colon\/cancerCell_Colon.usdc",
     "Blood Vessel\/bloodVessel_v004.usdc",
-    "CancerCell.usda"
+    "CancerCell.usda",
+    "ADC.usda",
+    "Untitled Scene.usda"
   ],
   "recentIdentifiers" : {
     "1D572CEB-057A-41C3-B575-04C37501A3C0" : [
@@ -32,6 +34,9 @@
 
     ],
     "D66134B1-3681-4A8E-AFE5-29F257229F3B" : [
+
+    ],
+    "EC108D8C-705C-4A0F-B3AE-2A51E3ACB1F9" : [
 
     ]
   },
@@ -692,5 +697,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "CancerCell.usda"
+  "selectedSceneRelativePath" : "Untitled Scene.usda"
 }
