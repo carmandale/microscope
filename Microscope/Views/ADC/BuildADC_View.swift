@@ -43,7 +43,7 @@ struct ADC: View {
             // Update existing blood cells when settings change
             if let bloodEntity = Entity.getBloodScene() {
                 for child in bloodEntity.children {
-                    if let streamComp = child.components[BloodStreamComponent.self] {
+                    if child.components[BloodStreamComponent.self] != nil {
                         // Update stream component with new settings
                         child.components.set(BloodStreamComponent(
                             flowSpeed: Float(settings.flowSpeed * settings.speedMultiplier),

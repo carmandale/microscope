@@ -38,5 +38,40 @@ def Xform "Root"
             }
         }
     }
+
+    def RealityKitComponent "Collider"
+    {
+        uint group = 1
+        uniform token info:id = "RealityKit.Collider"
+        uint mask = 1
+        token type = "Trigger"
+
+        def RealityKitStruct "Shape"
+        {
+            float3 extent = (0.5472724, 0.5472724, 0.5472724)
+            float radius = 0.2736362
+            token shapeType = "Sphere"
+
+            def RealityKitStruct "pose"
+            {
+            }
+        }
+    }
+
+    def RealityKitComponent "RigidBody"
+    {
+        uniform token info:id = "RealityKit.RigidBody"
+
+        def RealityKitStruct "massFrame"
+        {
+            def RealityKitStruct "m_pose"
+            {
+            }
+        }
+
+        def RealityKitStruct "material"
+        {
+        }
+    }
 }
 

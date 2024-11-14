@@ -14,12 +14,19 @@ struct MicroscopeApp: App {
     @StateObject private var speedSettings = Settings()
 
     init() {
+        /// register components
         RealityKitContent.GestureComponent.registerComponent()
         RealityKitContent.TurnTableComponent.registerComponent()
         RealityKitContent.BreathComponent.registerComponent()
+        RealityKitContent.CellComponent.registerComponent()
+        RealityKitContent.MovableEntityComponent.registerComponent()
+        RealityKitContent.ADCComponent.registerComponent()
+        
+        /// register systems
         TurnTableSystem.registerSystem()
         BreathSystem.registerSystem()
         BloodStreamSystem.registerSystem()
+        ProjectileSystem.registerSystem()
     }
 
     var body: some Scene {

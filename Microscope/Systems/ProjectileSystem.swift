@@ -1,33 +1,32 @@
 import RealityKit
 import Foundation
+import RealityKitContent
 
-class ProjectileSystem: RealityKit.System {
-    // Query for entities with ADCComponent
+struct ProjectileSystem: System {
     static let query = EntityQuery(where: .has(ADCComponent.self))
-    
-    private static let projectileSpeed: Float = 2.0     // Base speed
-    private static let avoidanceDistance: Float = 0.5   // Distance to start avoiding
-    private static let avoidanceForce: Float = 1.0      // Strength of avoidance
-    private static let attachDistance: Float = 0.2      // Distance to attach to cancer cell
-    
-    required init(scene: RealityKit.Scene) {}
-    
+
+    static let projectileSpeed: Float = 2.0
+    private static let avoidanceDistance: Float = 0.5
+    private static let avoidanceForce: Float = 1.0
+    private static let attachDistance: Float = 0.2
+
+    init(scene: Scene) { }
+
     func update(context: SceneUpdateContext) {
-        let deltaTime = Float(context.deltaTime)
-        
-        context.scene.performQuery(Self.query).forEach { entity in
+        // Use .rendering as the SystemUpdateCondition
+        for entity in context.entities(matching: Self.query, updatingSystemWhen: .rendering) {
             guard var adc = entity.components[ADCComponent.self],
-                  adc.isActive else { return }
+                  adc.isActive else { continue }
             
             // Update lifetime
-            adc.lifetime -= TimeInterval(deltaTime)
+            adc.lifetime -= TimeInterval(context.deltaTime)
             if adc.lifetime <= 0 {
                 entity.removeFromParent()
-                return
+                continue
             }
-            
+
             // Update position based on velocity
-            entity.position += adc.velocity * deltaTime
+            entity.position += adc.velocity * Float(context.deltaTime)
             
             // Check for collisions with cells
             checkCellInteractions(entity: entity, adc: &adc, scene: context.scene)
@@ -36,11 +35,12 @@ class ProjectileSystem: RealityKit.System {
             entity.components[ADCComponent.self] = adc
         }
     }
-    
+
     private func checkCellInteractions(entity: Entity, adc: inout ADCComponent, scene: Scene) {
         // Find all entities with CellComponent
-        scene.performQuery(EntityQuery(where: .has(CellComponent.self))).forEach { cellEntity in
-            guard let cellComponent = cellEntity.components[CellComponent.self] else { return }
+        let cellQuery = EntityQuery(where: .has(CellComponent.self))
+        for cellEntity in scene.performQuery(cellQuery) {
+            guard let cellComponent = cellEntity.components[CellComponent.self] else { continue }
             
             let distance = simd_distance(entity.position, cellEntity.position)
             
@@ -69,4 +69,4 @@ class ProjectileSystem: RealityKit.System {
             }
         }
     }
-} 
+}
